@@ -15,7 +15,7 @@ app = Flask(__name__)
 bcrypt = Bcrypt(app)
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db' # local 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://vguiumgzdyrtde:c88cbabef6c20dd268a3df522720bcf2e0186f179950134c0241e1346730272c@ec2-35-169-9-79.compute-1.amazonaws.com:5432/d9b6d2vvbdbpov'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://umtzqngciwbqpx:c03250d6ca6575dc79bc2e129b820bb5018968e555cef8ff3f7a1c15382d7af7@ec2-35-169-9-79.compute-1.amazonaws.com:5432/db0svrta8sfr0j'
 
 app.config['SECRET_KEY'] = 'e963201e'
 db = SQLAlchemy(app)
