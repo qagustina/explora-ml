@@ -120,7 +120,7 @@ def index():
 
 
 @app.route("/page_admin", methods=['GET', 'POST'])
-@login_required
+# @login_required
 def page_admin():
     year = get_year()
     # Obtiene datos de la tabla 'usuarios'
