@@ -15,8 +15,7 @@ app = Flask(__name__)
 bcrypt = Bcrypt(app)
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db' # local 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://umtzqngciwbqpx:c03250d6ca6575dc79bc2e129b820bb5018968e555cef8ff3f7a1c15382d7af7@ec2-35-169-9-79.compute-1.amazonaws.com:5432/db0svrta8sfr0j'
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ykumjvmbqxariz:e27acd413f71ac6b7a9e4fccbcb24d6cbe57a7474a9be1fabfab7015c62fb81c@ec2-44-213-151-75.compute-1.amazonaws.com:5432/d4447edvd8e00i'
 app.config['SECRET_KEY'] = 'e963201e'
 db = SQLAlchemy(app)
 # Importar las rutas después de la creación de la app para evitar ciclos de importación circular
@@ -120,7 +119,7 @@ def index():
 
 
 @app.route("/page_admin", methods=['GET', 'POST'])
-# @login_required
+@login_required
 def page_admin():
     year = get_year()
     # Obtiene datos de la tabla 'usuarios'
