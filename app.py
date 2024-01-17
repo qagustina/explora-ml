@@ -15,7 +15,8 @@ app = Flask(__name__)
 bcrypt = Bcrypt(app)
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db' # local 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ykumjvmbqxariz:e27acd413f71ac6b7a9e4fccbcb24d6cbe57a7474a9be1fabfab7015c62fb81c@ec2-44-213-151-75.compute-1.amazonaws.com:5432/d4447edvd8e00i'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://olepwqkgpbxztk:b4cd68a75156d64596128d963cb1af82b619af5ffeb97050bcc36131003fb652@ec2-3-232-218-211.compute-1.amazonaws.com:5432/d4lqke7if317jc'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'e963201e'
 db = SQLAlchemy(app)
 # Importar las rutas después de la creación de la app para evitar ciclos de importación circular
@@ -30,7 +31,7 @@ class User(db.Model, UserMixin):
     role_id = db.Column(db.Integer, db.ForeignKey('role.id'), nullable=False)
     
     # Relación con el modelo Role
-    role = db.relationship('Role', backref=db.backref('users', lazy=True))
+    role = db.relationship('Role', backref=db.backref('users'))
 
 class Role(db.Model):
     id = db.Column(db.Integer, primary_key=True)
