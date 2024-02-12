@@ -1,7 +1,6 @@
 from flask import Flask, render_template, url_for, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
@@ -14,9 +13,7 @@ app = Flask(__name__)
 
 bcrypt = Bcrypt(app)
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db' # local 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://olepwqkgpbxztk:b4cd68a75156d64596128d963cb1af82b619af5ffeb97050bcc36131003fb652@ec2-3-232-218-211.compute-1.amazonaws.com:5432/d4lqke7if317jc'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db' # local 
 app.config['SECRET_KEY'] = 'e963201e'
 db = SQLAlchemy(app)
 # Importar las rutas después de la creación de la app para evitar ciclos de importación circular
