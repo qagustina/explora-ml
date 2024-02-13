@@ -8,13 +8,14 @@ from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 from flask import jsonify
 from funcs import get_year
+from config import SECRET_KEY
 
 app = Flask(__name__)
 
 bcrypt = Bcrypt(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db' # local 
-app.config['SECRET_KEY'] = 'e963201e'
+app.config['SECRET_KEY'] = SECRET_KEY
 db = SQLAlchemy(app)
 # Importar las rutas después de la creación de la app para evitar ciclos de importación circular
 import routes
